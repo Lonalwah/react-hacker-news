@@ -1,4 +1,5 @@
 import React, {Fragment} from 'react';
+import { Routes, Route, Link } from "react-router-dom";
 import 'materialize-css/dist/css/materialize.min.css';
 import 'material-icons';
 
@@ -17,6 +18,8 @@ function App() {
         </div>
       </nav>
       <main>
+        <Routes>
+          <Route path="/" element={
         <div className="container">
           <div className="row">
             <div className="col s12">
@@ -24,6 +27,8 @@ function App() {
             </div>
           </div>
         </div>
+          }/>
+        </Routes>
       </main>
     </Fragment>
   );
