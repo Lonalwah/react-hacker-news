@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import FeedItem from './FeedItem';
 import HN from '../services/hn-api';
-import Item from './Item';
 
 function Feed() {
   const [items, setItems] = useState<number[]>([]);
@@ -19,10 +19,16 @@ function Feed() {
   console.log(items);
 
   return (
-    <div className='collection'>
-      {items.map((v, i) => (
-        <Item key={i} id={v}></Item>
-      ))}
+    <div className="container">
+      <div className="row">
+        <div className="col s12">
+          <div className='collection'>
+            {items.map((v, i) => (
+              <FeedItem key={i} id={v} />
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
