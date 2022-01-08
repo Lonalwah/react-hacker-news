@@ -5,18 +5,38 @@ import Comments from './Comments';
 
 const Comment: React.FC<{ id: number, level: number }> = ({ id, level }) => {
   const [item, setItem] = useState<HNItem | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [collapsed, setCollapsed] = useState<boolean>(false);
 
   useEffect(() => {
-    HN.GetItem(id).then(res => setItem(res));
+    setLoading(true);
+    HN.GetItem(id).then(res => {
+      setItem(res)
+      setLoading(false);
+    });
     return () => {
       setItem(null);
     }
   }, [id])
 
+  const ToggleCollapse = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
+    setCollapsed(!collapsed);
+  }
+
+  if (loading) {
+    return (
+      <div className="comment">
+        Loading comment...
+      </div>
+    )
+  }
+
   return (
-    <div className='comment'>
+    <div className={`comment ${collapsed ? 'collapsed' : ''}`} onClick={e => ToggleCollapse(e)}>
       <div className="header">
-        <p>Author: <span>{item?.deleted ? 'deleted' : item?.by}</span> {item?.id}</p>
+        <p>{item?.deleted ? 'deleted' : item?.by}</p>
       </div>
       <div className="content">
         {item?.deleted ?

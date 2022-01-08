@@ -5,8 +5,15 @@ import Comment from './Comment'
 const Comments: React.FC<{ commentIds: number[], level: number }> = ({ commentIds, level }) => {
   const [loadComments, setLoadComments] = useState<boolean>(level < 2)
 
+  const LoadComments = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    setLoadComments(true)
+  }
+
   if (!loadComments) {
-    return <button onClick={(e) => setLoadComments(true)}>Load more</button>
+    return <div className="comment" onClick={(e) => LoadComments(e)}>Load more comments</div>
   }
 
   return (

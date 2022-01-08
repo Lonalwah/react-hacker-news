@@ -5,14 +5,18 @@
 }
 
 .comment {
+  border-left: 2px solid #ff6f00;
+  padding-left: 12px;
   margin: 20px 0;
 }
 
 .comment .header {
   padding: 5px 0;
+  font-weight: bold;
+  color: #ff6f00;
 }
 
-.comment .content {
-  border-left: 2px solid #ff6f00;
-  padding-left: 12px;
+.comment.collapsed .content {
+  height: 0;
+  overflow: hidden;
 }
