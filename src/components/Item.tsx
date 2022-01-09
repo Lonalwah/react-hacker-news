@@ -14,7 +14,7 @@ const Item: React.FC = () => {
     return () => {
       setItem(null);
     }
-  }, [searchParams.get("id")])
+  }, [searchParams])
 
   useEffect(() => {
     if (item && item.kids) {

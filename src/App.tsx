@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Routes, Route, useParams } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import 'materialize-css/dist/css/materialize.min.css';
 import 'material-icons';
 
