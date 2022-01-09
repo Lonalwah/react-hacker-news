@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React, { Fragment } from 'react';
 import { Routes, Route, useParams } from "react-router-dom";
 import 'materialize-css/dist/css/materialize.min.css';
 import 'material-icons';
@@ -14,15 +14,15 @@ function App() {
     <Fragment>
       <nav>
         <div className="nav-wrapper amber darken-4">
-          <a href="#" className="brand-logo center">
+          <a href="/" className="brand-logo center">
             <span className="material-icons">newspaper</span> Hacker News
           </a>
         </div>
       </nav>
       <main>
         <Routes>
-          <Route path="/" element={<Feed />}/>
-          <Route path="item" element={<Item />}/>
+          <Route path="/" element={<Feed />} />
+          <Route path="item" element={<Item />} />
         </Routes>
       </main>
     </Fragment>
