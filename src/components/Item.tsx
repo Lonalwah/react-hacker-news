@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import HN, { HNItem } from '../services/hn-api';
 import Comments from "./Comments";
 
@@ -38,7 +37,7 @@ const Item: React.FC = () => {
               <div className="card">
                 <div className="card-content">
                   <span className="badge orange white-text">{item?.score}</span>
-                  <span className="card-title">{item?.title}</span>
+                  <span className="card-title"><a href={item.url}>{item?.title}</a></span>
                   <p>{item?.text}</p>
                 </div>
                 <div className="card-action">
